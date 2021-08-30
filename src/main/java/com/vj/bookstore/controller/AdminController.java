@@ -1,5 +1,9 @@
-package com.vj.bookstore;
+package com.vj.bookstore.controller;
 
+import com.vj.bookstore.service.Admin;
+import com.vj.bookstore.models.Book;
+import com.vj.bookstore.models.Customer;
+import com.vj.bookstore.models.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

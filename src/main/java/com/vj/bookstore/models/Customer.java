@@ -1,4 +1,4 @@
-package com.vj.bookstore;
+package com.vj.bookstore.models;
 
 import java.util.ArrayList;
 
@@ -7,8 +7,8 @@ public class Customer {
     private String customerName;
     private String customerEmail;
     private int customerId;
-    ArrayList<Book> booksBought = new ArrayList<>();
-    ArrayList<Book> booksCart = new ArrayList<>();
+    private ArrayList<Book> booksBought = new ArrayList<>();
+    private ArrayList<Book> booksCart = new ArrayList<>();
     private static int i = 1;
 
     public Customer(String name, String email) {

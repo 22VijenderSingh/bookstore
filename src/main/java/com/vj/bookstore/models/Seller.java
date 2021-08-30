@@ -1,4 +1,4 @@
-package com.vj.bookstore;
+package com.vj.bookstore.models;
 
 import java.util.ArrayList;
 
@@ -59,12 +59,9 @@ public class Seller {
         this.booksOnSite = booksOnSite;
     }
 
-    //  todo, remove seller name
+    
     public boolean sellerCheck(String name, int id) {
-        if (sellerName == name && sellerId == id) {
-            return true;
-        }
-        return false;
+        return sellerName.equals(name) && sellerId == id;
     }
 
     public void addBookDetail(Book book) {

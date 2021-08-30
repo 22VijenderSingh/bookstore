@@ -1,4 +1,4 @@
-package com.vj.bookstore;
+package com.vj.bookstore.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -77,9 +77,9 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return bookId == book.bookId &&
-                bookPrice == book.bookPrice &&
-                sellerId == book.sellerId &&
-                customerId == book.customerId &&
+                bookPrice.equals(book.bookPrice) &&
+                sellerId.equals(book.sellerId) &&
+                customerId.equals(book.customerId) &&
                 bookSold == book.bookSold &&
                 bookName.equals(book.bookName);
     }

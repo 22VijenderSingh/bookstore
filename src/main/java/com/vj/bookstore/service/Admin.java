@@ -1,6 +1,9 @@
-package com.vj.bookstore;
+package com.vj.bookstore.service;
 
 import com.vj.bookstore.exception.BookstoreServiceException;
+import com.vj.bookstore.models.Book;
+import com.vj.bookstore.models.Customer;
+import com.vj.bookstore.models.Seller;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,9 +25,9 @@ public class Admin {
 
     public Seller getSellerByID(int sellerId) {
 
-        for (int i = 0; i < sellers.size(); i++) {
-            if (sellers.get(i).getSellerId() == sellerId) {
-                return sellers.get(i);
+        for (Seller seller : sellers) {
+            if (seller.getSellerId() == sellerId) {
+                return seller;
             }
         }
         throw new BookstoreServiceException("Seller not found for the corresponding sellerID");
@@ -48,18 +51,18 @@ public class Admin {
     }
 
     public Customer getCustomerById(int customerId) {
-        for (int i = 0; i < customers.size(); i++) {
-            if (customers.get(i).getCustomerId() == customerId) {
-                return customers.get(i);
+        for (Customer customer : customers) {
+            if (customer.getCustomerId() == customerId) {
+                return customer;
             }
         }
         throw new BookstoreServiceException("Customer not found corresponding to this customerID");
     }
 
     public Book getBookById(int bookId) {
-        for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).getBookId() == bookId) {
-                return books.get(i);
+        for (Book book : books) {
+            if (book.getBookId() == bookId) {
+                return book;
             }
         }
         throw new BookstoreServiceException("Book not found corresponding to this bookID");
@@ -71,9 +74,9 @@ public class Admin {
 
     public List<Book> showBookByName(String bookName) {
         List<Book> filteredBooks = new ArrayList<>();
-        for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).getBookName().equals(bookName)) {
-                filteredBooks.add(books.get(i));
+        for (Book book : books) {
+            if (book.getBookName().equals(bookName)) {
+                filteredBooks.add(book);
             }
         }
 
@@ -98,7 +101,7 @@ public class Admin {
 
     public List<Book> getPurchasedBooks(int customerId) {
         Customer customer = getCustomerById(customerId);
-        return customer.booksBought;
+        return customer.getBooksBought();
 
     }
 
